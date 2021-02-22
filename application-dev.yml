@@ -1,3 +1,41 @@
-config:
-  git:
-    test :dev
+spring:
+  profiles:
+    active: dev
+
+---
+spring:
+  profiles: dev
+  output:
+    ansi:
+      enabled: always
+  application:
+    name: ms-covid-provider-8080
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/springcloud?serverTimezone=UTC&useSSL=false
+    username: root
+    password: 123456
+  jpa:
+    hibernate:
+logging:
+  level:
+    root: INFO
+    org :
+      springframework: INFO
+covid:
+  daily:
+    data:
+      api: https://api.covidtracking.com/v1/states/current.json
+
+
+
+
+eureka:
+  client: #客户端注册进eureka服务列表内
+    service-url:
+      #defaultZone: http://localhost:7001/eureka
+      defaultZone: http://localhost:9001/eureka/
+  instance:
+    instance-id: ms-cloud-covid-8080
+    prefer-ip-address: true     #访问路径可以显示IP地址
+
+
