@@ -1,3 +1,2 @@
 config:
-  git:
-    test :boot
+  git: boot
